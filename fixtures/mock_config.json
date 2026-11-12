@@ -1,0 +1,15 @@
+{
+  "service": {
+    "host": "127.0.0.1",
+    "port": 8080,
+    "read_root": "/",
+    "xss_probe": "<b>x</b>",
+    "xss_probe_escaped": "&lt;b&gt;x&lt;/b&gt;"
+  },
+  "endpoints": [
+    {"name": "search", "path": "/search", "param": "q", "behavior": "raw_reflect"},
+    {"name": "render", "path": "/render", "param": "t", "behavior": "template_eval"},
+    {"name": "profile", "path": "/profile", "param": "name", "behavior": "path_read"},
+    {"name": "comment", "path": "/comment", "param": "text", "behavior": "escaped_reflect"}
+  ]
+}
